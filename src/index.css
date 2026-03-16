@@ -99,3 +99,9 @@ html, body, #root {
 input, button {
   font-family: inherit;
 }
+
+/* Marquee animation for trusted-by strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
