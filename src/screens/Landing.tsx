@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 /* ─── Static data ─────────────────────────────────────────── */
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80'
+  'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1920&q=80'
 
 const STEPS = [
   {
@@ -126,19 +126,19 @@ export default function Landing() {
 
         {/* ── Hero ── */}
         <section
-          className="relative flex flex-col items-center justify-center text-center px-4 pt-24 pb-20 md:pt-44 md:pb-36 min-h-[80vh] md:min-h-dvh overflow-hidden"
+          className="relative flex flex-col items-center justify-center text-center px-5 pt-20 pb-16 sm:pt-28 sm:pb-20 md:pt-44 md:pb-36 min-h-dvh overflow-hidden"
           style={{
             backgroundImage: `url(${HERO_IMAGE})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
+            backgroundPosition: 'center center',
           }}
         >
-          {/* Gradient overlay */}
+          {/* Darker overlay on mobile, lighter in middle on desktop */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0.92) 100%)',
+                'linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.55) 65%, rgba(0,0,0,0.95) 100%)',
             }}
           />
           {/* Green radial glow */}
@@ -146,50 +146,54 @@ export default function Landing() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'radial-gradient(ellipse 60% 40% at 50% 48%, rgba(87,184,84,0.10), transparent)',
+                'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(87,184,84,0.09), transparent)',
             }}
           />
 
-          <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
-            <span className="inline-flex items-center gap-2 text-[12px] font-semibold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <div className="relative z-10 flex flex-col items-center w-full max-w-3xl mx-auto">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-semibold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-3 sm:px-4 py-1.5 rounded-full mb-6 sm:mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0" />
               Smart Daily Commute
             </span>
 
-            <h1 className="text-[38px] sm:text-[52px] md:text-[68px] font-bold text-white leading-[1.04] tracking-tight">
+            {/* Headline */}
+            <h1 className="text-[32px] sm:text-[48px] md:text-[64px] font-bold text-white leading-[1.06] tracking-tight px-2">
               Your daily ride,<br />
               <span className="text-primary">scheduled ahead.</span>
             </h1>
 
-            <p className="mt-6 text-[#A0A0A0] text-[15px] md:text-[18px] leading-relaxed max-w-xl">
+            {/* Subtext */}
+            <p className="mt-5 text-[#909090] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-xs sm:max-w-md md:max-w-xl px-2">
               Book a shared or solo cab for your regular commute. Set it once, ride every day.
               Affordable, reliable, and always on time.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mt-10 w-full sm:w-auto px-2 sm:px-0">
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 mt-8 sm:mt-10 w-full sm:w-auto max-w-xs sm:max-w-none">
               <Button
                 onClick={() => navigate('/book')}
-                className="w-full sm:w-auto h-12 px-8 text-[15px] font-semibold bg-primary hover:bg-primary/85 text-white shadow-[0_4px_28px_rgba(87,184,84,0.40)] rounded-xl"
+                className="w-full sm:w-auto h-11 sm:h-12 px-6 sm:px-8 text-[14px] sm:text-[15px] font-semibold bg-primary hover:bg-primary/85 text-white shadow-[0_4px_28px_rgba(87,184,84,0.40)] rounded-xl"
               >
                 Get Started <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button
                 variant="outline"
-                className="w-full sm:w-auto h-12 px-8 text-[15px] font-semibold border-[#3C3C3C] bg-black/30 text-white hover:bg-[#1A1A1A] rounded-xl backdrop-blur-sm"
+                className="w-full sm:w-auto h-11 sm:h-12 px-6 sm:px-8 text-[14px] sm:text-[15px] font-semibold border-[#3C3C3C] bg-black/30 text-white hover:bg-[#1A1A1A] rounded-xl backdrop-blur-sm"
               >
                 <Smartphone className="w-4 h-4 mr-2" /> Download App
               </Button>
             </div>
 
-            {/* Glass stats strip */}
-            <div className="mt-14 flex items-stretch bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
+            {/* Glass stats strip — equal cols, no overflow */}
+            <div className="mt-10 sm:mt-14 grid grid-cols-3 w-full max-w-xs sm:max-w-sm bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
               {STATS.map(({ value, label }, i) => (
                 <div
                   key={label}
-                  className={`flex flex-col items-center px-8 py-4 ${i < STATS.length - 1 ? 'border-r border-white/10' : ''}`}
+                  className={`flex flex-col items-center py-3 sm:py-4 ${i < STATS.length - 1 ? 'border-r border-white/10' : ''}`}
                 >
-                  <span className="text-white font-bold text-[24px] md:text-[28px] leading-none">{value}</span>
-                  <span className="text-[#666] text-[11px] mt-1">{label}</span>
+                  <span className="text-white font-bold text-[18px] sm:text-[22px] md:text-[26px] leading-none">{value}</span>
+                  <span className="text-[#666] text-[10px] sm:text-[11px] mt-1">{label}</span>
                 </div>
               ))}
             </div>
