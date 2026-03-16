@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 /* ─── Static data ─────────────────────────────────────────── */
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&q=80'
+  'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80'
 
 const STEPS = [
   {
@@ -32,38 +32,6 @@ const STEPS = [
   },
 ]
 
-const FEATURES = [
-  {
-    icon: BadgeCheck,
-    title: 'Verified drivers',
-    desc: 'All drivers are background-checked and rated by the community.',
-  },
-  {
-    icon: Clock,
-    title: 'Always on time',
-    desc: 'Scheduled pickups so you never miss your office hours.',
-  },
-  {
-    icon: Users,
-    title: 'Shared & solo rides',
-    desc: 'Split the cost with teammates or book a solo cab.',
-  },
-  {
-    icon: MapPin,
-    title: 'Door-to-door',
-    desc: 'Pickup and drop exactly where you need, every day.',
-  },
-  {
-    icon: Zap,
-    title: 'Instant confirmation',
-    desc: 'Your ride is confirmed in seconds — no waiting, no uncertainty.',
-  },
-  {
-    icon: Shield,
-    title: 'Safe every ride',
-    desc: 'Live trip tracking and emergency contacts for every journey.',
-  },
-]
 
 const TESTIMONIALS = [
   {
@@ -110,7 +78,7 @@ export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-dvh bg-[#0A0A0A] flex flex-col overflow-x-hidden">
+    <div className="min-h-dvh bg-surface flex flex-col overflow-x-hidden">
 
       {/* ── Navbar ── */}
       <header className="sticky top-0 z-50 border-b border-[#1A1A1A] px-6 py-4 flex items-center justify-between backdrop-blur-md bg-black/80">
@@ -123,7 +91,7 @@ export default function Landing() {
           <a href="#reviews" className="text-[#808080] hover:text-white text-[14px] transition-colors">Reviews</a>
           <Button
             variant="outline"
-            className="h-8 px-4 text-[13px] border-[#2C2C2C] bg-transparent text-white hover:bg-[#1A1A1A]"
+            className="h-8 px-4 text-[13px] border-border bg-transparent text-white hover:bg-[#1A1A1A]"
             onClick={() => navigate('/book')}
           >
             Book a ride
@@ -146,7 +114,7 @@ export default function Landing() {
           <a href="#reviews" className="text-[#808080] hover:text-white text-[15px] transition-colors py-1" onClick={() => setMenuOpen(false)}>Reviews</a>
           <Button
             variant="outline"
-            className="w-full h-10 text-[14px] border-[#2C2C2C] bg-transparent text-white hover:bg-[#1A1A1A]"
+            className="w-full h-10 text-[14px] border-border bg-transparent text-white hover:bg-[#1A1A1A]"
             onClick={() => { setMenuOpen(false); navigate('/book') }}
           >
             Book a ride
@@ -207,7 +175,7 @@ export default function Landing() {
               </Button>
               <Button
                 variant="outline"
-                className="w-full sm:w-auto h-12 px-8 text-[15px] font-semibold border-[#2C2C2C] bg-transparent text-[#808080] hover:text-white hover:bg-[#1A1A1A] rounded-xl"
+                className="w-full sm:w-auto h-12 px-8 text-[15px] font-semibold border-[#3C3C3C] bg-black/30 text-white hover:bg-[#1A1A1A] rounded-xl backdrop-blur-sm"
               >
                 <Smartphone className="w-4 h-4 mr-2" /> Download App
               </Button>
@@ -273,7 +241,7 @@ export default function Landing() {
                 >
                   {/* Giant muted step number background */}
                   <span
-                    className="absolute top-3 right-4 text-[72px] font-black text-white/[0.03] leading-none select-none pointer-events-none"
+                    className="absolute top-3 right-4 text-[72px] font-black text-white/3 leading-none select-none pointer-events-none"
                   >
                     {step}
                   </span>
@@ -297,24 +265,86 @@ export default function Landing() {
           <div className="max-w-5xl mx-auto">
             <p className="text-center text-[12px] font-semibold text-primary uppercase tracking-widest mb-3">Features</p>
             <h2 className="text-center text-[28px] md:text-[40px] font-bold text-white mb-4">Why riders choose Pluto</h2>
-            <p className="text-center text-[#555] text-[15px] max-w-md mx-auto mb-16">
+            <p className="text-center text-[#555] text-[15px] max-w-md mx-auto mb-14">
               Built for the daily commuter — reliable, affordable, and effortless.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {FEATURES.map(({ icon: Icon, title, desc }) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                {
+                  icon: BadgeCheck,
+                  title: 'Verified drivers',
+                  desc: 'All drivers are background-checked and rated by the community.',
+                  tag: 'Trusted',
+                },
+                {
+                  icon: Clock,
+                  title: 'Always on time',
+                  desc: 'Scheduled pickups so you never miss your office hours.',
+                  tag: 'Reliable',
+                },
+                {
+                  icon: Users,
+                  title: 'Shared & solo rides',
+                  desc: 'Split the cost with teammates or book a solo cab.',
+                  tag: 'Flexible',
+                },
+                {
+                  icon: MapPin,
+                  title: 'Door-to-door',
+                  desc: 'Pickup and drop exactly where you need, every single day.',
+                  tag: 'Convenient',
+                },
+                {
+                  icon: Zap,
+                  title: 'Instant confirmation',
+                  desc: 'Your ride is confirmed in seconds — no waiting, no uncertainty.',
+                  tag: 'Fast',
+                },
+                {
+                  icon: Shield,
+                  title: 'Safe every ride',
+                  desc: 'Live trip tracking and emergency contacts for every journey.',
+                  tag: 'Secure',
+                },
+              ].map(({ icon: Icon, title, desc, tag }) => (
                 <div
                   key={title}
-                  className="group relative flex flex-col gap-4 bg-[#0E0E0E] border border-[#1E1E1E] hover:border-primary/25 hover:bg-[#111] rounded-2xl p-6 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-[#0C0C0C] border border-[#1E1E1E] rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
                 >
-                  {/* Subtle corner glow on hover */}
-                  <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-br-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(87,184,84,0.12)] group-hover:shadow-[0_0_20px_rgba(87,184,84,0.28)] transition-shadow duration-300">
-                    <Icon className="w-5 h-5 text-primary" />
+                  {/* Icon header zone */}
+                  <div
+                    className="relative flex items-center justify-center h-32 overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(160deg, rgba(87,184,84,0.10) 0%, rgba(87,184,84,0.03) 50%, transparent 100%)',
+                    }}
+                  >
+                    {/* Faint grid pattern */}
+                    <div
+                      className="absolute inset-0 opacity-20 pointer-events-none"
+                      style={{
+                        backgroundImage: 'linear-gradient(rgba(87,184,84,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(87,184,84,0.08) 1px, transparent 1px)',
+                        backgroundSize: '24px 24px',
+                      }}
+                    />
+                    {/* Big faded icon behind */}
+                    <Icon className="absolute w-24 h-24 text-primary/5 pointer-events-none" />
+                    {/* Active icon circle */}
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-[#0C0C0C] border border-primary/25 flex items-center justify-center shadow-[0_0_0_6px_rgba(87,184,84,0.06)] group-hover:shadow-[0_0_0_8px_rgba(87,184,84,0.10),0_0_20px_rgba(87,184,84,0.2)] transition-all duration-300">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-white font-semibold text-[15px] mb-1.5">{title}</h3>
+
+                  {/* Divider with tag */}
+                  <div className="flex items-center gap-3 px-5">
+                    <div className="flex-1 h-px bg-[#1E1E1E] group-hover:bg-primary/20 transition-colors duration-300" />
+                    <span className="text-[10px] font-semibold text-primary/60 uppercase tracking-widest shrink-0">{tag}</span>
+                    <div className="flex-1 h-px bg-[#1E1E1E] group-hover:bg-primary/20 transition-colors duration-300" />
+                  </div>
+
+                  {/* Text body */}
+                  <div className="px-5 pt-4 pb-6">
+                    <h3 className="text-white font-semibold text-[16px] mb-2">{title}</h3>
                     <p className="text-[#555] text-[13px] leading-relaxed">{desc}</p>
                   </div>
                 </div>
@@ -358,7 +388,7 @@ export default function Landing() {
                     <img
                       src={avatar}
                       alt={name}
-                      className="w-10 h-10 rounded-full object-cover border border-[#2C2C2C]"
+                      className="w-10 h-10 rounded-full object-cover border border-border"
                     />
                     <div>
                       <p className="text-white text-[13px] font-semibold">{name}</p>
@@ -390,7 +420,7 @@ export default function Landing() {
                   Track your ride in real time, manage your schedule, and get notified before every pickup — all from the Pluto app.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <button className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-[#2C2C2C] hover:border-[#3C3C3C] rounded-xl px-4 py-3 transition-all duration-200 text-left">
+                  <button className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-border hover:border-[#3C3C3C] rounded-xl px-4 py-3 transition-all duration-200 text-left">
                     <div className="flex items-center justify-center w-8 h-8 bg-[#1A1A1A] rounded-lg">
                       <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
                     </div>
@@ -399,7 +429,7 @@ export default function Landing() {
                       <p className="text-white text-[13px] font-semibold">App Store</p>
                     </div>
                   </button>
-                  <button className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-[#2C2C2C] hover:border-[#3C3C3C] rounded-xl px-4 py-3 transition-all duration-200 text-left">
+                  <button className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-border hover:border-[#3C3C3C] rounded-xl px-4 py-3 transition-all duration-200 text-left">
                     <div className="flex items-center justify-center w-8 h-8 bg-[#1A1A1A] rounded-lg">
                       <svg viewBox="0 0 24 24" className="w-5 h-5"><path fill="#4CAF50" d="M1.22 0c-.03.1-.05.2-.05.31v23.38c0 .11.02.21.05.31l.11.11 13.08-13.08v-.15L1.33-.11z"/><path fill="#FFC107" d="M18.43 8.88l-4.02-4.02-.15.14v.15l4.02 4.02.09-.05 1.96-1.12c.56-.32.56-.84 0-1.15l-1.96-1.12-.09.05z"/><path fill="#FF3D00" d="M18.52 15.12l-1.96-1.12-4.11 4.11.11.11 13.08-13.08-.11-.11z"/><path fill="#3F51B5" d="M1.22 23.69c.1.06.22.1.35.1.2 0 .4-.07.56-.2l15.32-8.74-2.17-2.17z"/></svg>
                     </div>
@@ -413,7 +443,7 @@ export default function Landing() {
 
               {/* Right — visual */}
               <div
-                className="relative flex items-center justify-center min-h-[260px] md:min-h-0 overflow-hidden"
+                className="relative flex items-center justify-center min-h-65 md:min-h-0 overflow-hidden"
                 style={{
                   background:
                     'radial-gradient(ellipse 70% 70% at 60% 50%, rgba(87,184,84,0.12) 0%, transparent 70%), #0A0A0A',
@@ -422,14 +452,14 @@ export default function Landing() {
                 {/* Decorative phone frame */}
                 <div className="relative z-10 flex flex-col items-center justify-center">
                   <div
-                    className="w-48 h-[340px] rounded-[36px] border-2 border-[#2C2C2C] bg-[#111] flex flex-col overflow-hidden shadow-[0_0_60px_rgba(87,184,84,0.15)]"
+                    className="w-48 h-85 rounded-[36px] border-2 border-border bg-[#111] flex flex-col overflow-hidden shadow-[0_0_60px_rgba(87,184,84,0.15)]"
                   >
                     {/* Phone top bar */}
                     <div className="flex items-center justify-center pt-3 pb-2 shrink-0">
-                      <div className="w-16 h-1.5 rounded-full bg-[#2C2C2C]" />
+                      <div className="w-16 h-1.5 rounded-full bg-border" />
                     </div>
                     {/* Screen content mock */}
-                    <div className="flex-1 bg-[#0A0A0A] mx-1.5 rounded-[24px] overflow-hidden flex flex-col px-3 pt-4 pb-3 gap-3">
+                    <div className="flex-1 bg-surface mx-1.5 rounded-3xl overflow-hidden flex flex-col px-3 pt-4 pb-3 gap-3">
                       <div className="text-[9px] text-[#555]">Your ride today</div>
                       <div className="bg-[#141414] rounded-xl p-3 flex flex-col gap-2 border border-[#1E1E1E]">
                         <div className="flex items-center gap-2">
@@ -459,7 +489,7 @@ export default function Landing() {
                     </div>
                     {/* Home indicator */}
                     <div className="flex items-center justify-center py-2 shrink-0">
-                      <div className="w-10 h-1 rounded-full bg-[#2C2C2C]" />
+                      <div className="w-10 h-1 rounded-full bg-border" />
                     </div>
                   </div>
                 </div>
@@ -510,9 +540,9 @@ export default function Landing() {
             <span className="text-[#444] text-[12px]">© 2025 Pluto Rides. All rights reserved.</span>
           </div>
           <div className="flex items-center gap-5">
-            <a href="#" className="text-[#444] hover:text-[#808080] text-[12px] transition-colors">Privacy</a>
-            <a href="#" className="text-[#444] hover:text-[#808080] text-[12px] transition-colors">Terms</a>
-            <a href="#" className="text-[#444] hover:text-[#808080] text-[12px] transition-colors">Support</a>
+            <a href="#" className="text-[#444] hover:text-text-muted text-[12px] transition-colors">Privacy</a>
+            <a href="#" className="text-[#444] hover:text-text-muted text-[12px] transition-colors">Terms</a>
+            <a href="#" className="text-[#444] hover:text-text-muted text-[12px] transition-colors">Support</a>
           </div>
         </div>
       </footer>
