@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ── shadcn/ui CSS variables (Pluto dark theme) ── */
+:root {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #141414;
+  --card-foreground: #FFFFFF;
+  --popover: #141414;
+  --popover-foreground: #FFFFFF;
+  --primary: #57B854;
+  --primary-foreground: #FFFFFF;
+  --secondary: #1C1C1C;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1C1C1C;
+  --muted-foreground: #808080;
+  --accent: #57B854;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF4747;
+  --destructive-foreground: #FFFFFF;
+  --border: #2C2C2C;
+  --input: #171719;
+  --ring: #57B854;
+  --radius: 12px;
+}
+
+/* ── Pluto Design Tokens ── */
+@theme {
+  --color-bg:           #000000;
+  --color-surface:      #0A0A0A;
+  --color-surface-2:    #171719;
+  --color-surface-3:    #1C1C1C;
+  --color-border:       #2C2C2C;
+  --color-primary:      #57B854;
+  --color-primary-dark: #530036;
+  --color-text-primary: #FFFFFF;
+  --color-text-hint:    #B0B0B0;
+  --color-text-muted:   #808080;
+  --color-error:        #FF4747;
+  --color-success:      #24D824;
+  --color-warning:      #FFC420;
+  --color-disabled-bg:  #3A3A3A;
+
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-full: 9999px;
+
+  --font-sans: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Fonts ── */
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/fonts/HelveticaNeueRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/fonts/HelveticaNeueMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('/fonts/HelveticaNeueBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  font-family: inherit;
+}
